@@ -38,8 +38,9 @@ public class Server {
             while(true){
                 Socket s = ss.accept();
                 listSocket.add(s);
-                childThread exe = new childThread(s);
-                exe.start();
+                Thread t = new Thread(new childThread(s));
+                
+                t.start();
                 
             }
         } catch (IOException ex) {

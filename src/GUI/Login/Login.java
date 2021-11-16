@@ -238,7 +238,7 @@ public class Login extends javax.swing.JFrame {
                     
                     
                     //Read result from server
-                    String line = input.readUTF();System.out.println(line);
+                    String line = input.readUTF();
                     maps = new Gson().fromJson(line, new TypeToken<HashMap<String,String>>(){}.getType());
                     
                     if(maps.get("result").compareTo("SUCCESS") == 0){
