@@ -6,24 +6,31 @@
 package GUI.Room;
 
 import DTO.Room;
+import DTO.User;
 
 /**
  *
  * @author mthuan
  */
 public class Room_Item extends javax.swing.JPanel {
-
+    User user;
+    Room room;
     /**
      * Creates new form Room_Item
      */
     public Room_Item() {
         initComponents();
     }
-    
-    public Room_Item(Room room){
+
+    public Room_Item(User user, Room room) {
+        this.user = user;
+        this.room = room;
         initComponents();
-        displayRoomInfo();
+        
+        initRoom();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form. WARNING: Do NOT modify this code. The content of this method is
@@ -33,61 +40,68 @@ public class Room_Item extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        nameRoom = new javax.swing.JLabel();
-        idRoom = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        typeRoom1 = new javax.swing.JLabel();
+        room_name = new javax.swing.JLabel();
+        status_room = new javax.swing.JLabel();
+        type_room = new javax.swing.JLabel();
+        join_room = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(400, 100));
+        setBackground(new java.awt.Color(254, 160, 160));
 
-        jPanel1.setBackground(new java.awt.Color(1, 127, 238));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254), 2));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        room_name.setFont(new java.awt.Font("Arimo", 0, 24)); // NOI18N
+        room_name.setText("Ten Phong");
 
-        nameRoom.setFont(new java.awt.Font("Arimo", 0, 24)); // NOI18N
-        nameRoom.setForeground(new java.awt.Color(254, 254, 254));
-        nameRoom.setText("Tên Nhóm");
-        jPanel1.add(nameRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 347, -1));
+        status_room.setFont(new java.awt.Font("Arimo", 0, 24)); // NOI18N
+        status_room.setText("Trang Thai");
 
-        idRoom.setFont(new java.awt.Font("Arimo", 0, 24)); // NOI18N
-        idRoom.setForeground(new java.awt.Color(254, 254, 254));
-        idRoom.setText("ID Room :");
-        jPanel1.add(idRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 240, -1));
+        type_room.setFont(new java.awt.Font("Arimo", 0, 24)); // NOI18N
+        type_room.setText("Loai Phong");
 
-        jButton1.setFont(new java.awt.Font("Arimo", 1, 24)); // NOI18N
-        jButton1.setText("Tham Gia");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, 70));
-
-        typeRoom1.setFont(new java.awt.Font("Arimo", 0, 24)); // NOI18N
-        typeRoom1.setForeground(new java.awt.Color(254, 254, 254));
-        typeRoom1.setText("Loại ");
-        jPanel1.add(typeRoom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 230, -1));
+        join_room.setFont(new java.awt.Font("Arimo", 1, 24)); // NOI18N
+        join_room.setText("Tham Gia");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(room_name, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(status_room, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(type_room, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(join_room)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(room_name)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(type_room)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(status_room)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(join_room)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel idRoom;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel nameRoom;
-    private javax.swing.JLabel typeRoom1;
+    private javax.swing.JButton join_room;
+    private javax.swing.JLabel room_name;
+    private javax.swing.JLabel status_room;
+    private javax.swing.JLabel type_room;
     // End of variables declaration//GEN-END:variables
 
-    private void displayRoomInfo() {
-        
+    private void initRoom() {
+        room_name.setText(room.getName());
+       type_room.setText("Loại Phòng : " + (room.isGroup_chat() ? "Chat nhóm " : "Chat 1-1"));
+       
+       
     }
 }

@@ -65,4 +65,8 @@ public class UserBUS {
         }
         return digest;
     }
+
+    public List<User> getAllUser() {
+        return userdao.getAllList();
+    }
 }

@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.TextArea;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -22,6 +23,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import static sun.misc.GThreadHelper.lock;
 
 /**
@@ -39,19 +41,17 @@ public class Chat_Room extends javax.swing.JFrame {
      * Creates new form Chat_Room
      */
     public Chat_Room() {
-        
-        initComponents();
-        this.setLocationRelativeTo(null);
+
         try {
+            initComponents();
+            this.setLocationRelativeTo(null);
             s = new Socket("127.0.0.1", 8888);
-
-            loadRoomChat loadRoom = new loadRoomChat(s, listRoomContainer);
-            loadRoom.run();
-
+            Thread t = new Thread(new loadRoomChat(s, listRoomContainer, user));
+            t.start();
         } catch (IOException ex) {
             Logger.getLogger(Chat_Room.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     public Chat_Room(User user) {
@@ -69,24 +69,9 @@ public class Chat_Room extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        ListRoom = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         listRoomContainer = new javax.swing.JScrollPane();
-        refresh = new javax.swing.JButton();
-        header = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(202, 200, 200));
@@ -94,216 +79,24 @@ public class Chat_Room extends javax.swing.JFrame {
 
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ListRoom.setBackground(new java.awt.Color(254, 254, 254));
-        ListRoom.setForeground(new java.awt.Color(1, 1, 1));
-
-        jTextField1.setFont(new java.awt.Font("Arimo", 0, 24)); // NOI18N
-
-        jButton1.setBackground(new java.awt.Color(0, 141, 255));
-        jButton1.setFont(new java.awt.Font("Arimo", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(254, 254, 254));
-        jButton1.setText("Tìm Kiếm");
-
-        jLabel2.setFont(new java.awt.Font("Arimo", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 126, 255));
-        jLabel2.setText("Danh Sách :");
-
-        refresh.setText("Refresh");
-        refresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                refreshMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ListRoomLayout = new javax.swing.GroupLayout(ListRoom);
-        ListRoom.setLayout(ListRoomLayout);
-        ListRoomLayout.setHorizontalGroup(
-            ListRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListRoomLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(ListRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(listRoomContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ListRoomLayout.createSequentialGroup()
-                        .addGroup(ListRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(34, 34, 34)
-                        .addGroup(ListRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(refresh)
-                            .addComponent(jButton1)))))
-        );
-        ListRoomLayout.setVerticalGroup(
-            ListRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListRoomLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(ListRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(6, 6, 6)
-                .addGroup(ListRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(refresh))
-                .addGap(6, 6, 6)
-                .addComponent(listRoomContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        background.add(ListRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 510));
-
-        header.setBackground(new java.awt.Color(254, 254, 254));
+        listRoomContainer.setBackground(new java.awt.Color(224, 219, 219));
+        background.add(listRoomContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 990, 460));
 
         jLabel1.setBackground(new java.awt.Color(254, 254, 254));
         jLabel1.setFont(new java.awt.Font("BrushScript", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(9, 105, 254));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Messenger Pha Ke :)))");
+        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1060, 47));
 
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
-        );
+        jButton2.setFont(new java.awt.Font("Arimo", 0, 24)); // NOI18N
+        jButton2.setText("Tạo Phòng Chat");
+        background.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        background.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 970, 50));
-
-        jPanel1.setBackground(new java.awt.Color(231, 224, 224));
-
-        jLabel3.setFont(new java.awt.Font("Arimo", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 126, 255));
-        jLabel3.setText("Nội dung chat");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(0, 403, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(0, 538, Short.MAX_VALUE))
-        );
-
-        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 640, 580));
-
-        jPanel2.setBackground(new java.awt.Color(255, 123, 255));
-
-        jLabel4.setFont(new java.awt.Font("Arimo", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 126, 255));
-        jLabel4.setText("Thành Viên");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(137, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addContainerGap(272, Short.MAX_VALUE))
-        );
-
-        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 60, 280, 300));
-
-        jPanel3.setBackground(new java.awt.Color(232, 157, 32));
-
-        jLabel5.setFont(new java.awt.Font("Arimo", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 126, 255));
-        jLabel5.setText("Chức năng ");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel5)
-                .addGap(0, 146, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel5)
-                .addGap(0, 92, Short.MAX_VALUE))
-        );
-
-        background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 520, 280, 120));
-
-        jPanel4.setBackground(new java.awt.Color(2, 163, 24));
-
-        jLabel6.setFont(new java.awt.Font("Arimo", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 126, 255));
-        jLabel6.setText("Lưu trữ file");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel6)
-                .addGap(0, 150, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel6)
-                .addGap(0, 132, Short.MAX_VALUE))
-        );
-
-        background.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 360, 280, 160));
-
-        jPanel5.setBackground(new java.awt.Color(158, 168, 1));
-
-        jLabel7.setFont(new java.awt.Font("Arimo", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 126, 255));
-        jLabel7.setText("Chức năng ");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel7)
-                .addGap(0, 396, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel7)
-                .addGap(0, 92, Short.MAX_VALUE))
-        );
-
-        background.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 516, 530, 120));
-
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 640));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void refreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshMouseClicked
-        // TODO add your handling code here:
-        listRoomContainer.removeAll();
-        listRoomContainer.revalidate();
-        listRoomContainer.repaint();
-        loadRoomChat load = new loadRoomChat(s, listRoomContainer);
-        load.run();
-        
-    }//GEN-LAST:event_refreshMouseClicked
 
     /**
      * @param args the command line arguments
@@ -341,85 +134,83 @@ public class Chat_Room extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ListRoom;
     private javax.swing.JPanel background;
-    private javax.swing.JPanel header;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JScrollPane listRoomContainer;
-    private javax.swing.JButton refresh;
     // End of variables declaration//GEN-END:variables
 }
 
 class loadRoomChat implements Runnable {
 
+    JScrollPane roomList;
+    User user;
     Socket s;
-    JScrollPane scroll = null;
-    final int WIDTH_ITEM = 600;
-    final int HEIGHT_ITEM = 50;
 
-    public loadRoomChat(Socket s, JScrollPane scroll) {
-        this.scroll = scroll;
+    final int WIDTH_ITEM = 500;
+    final int HEIGHT_ITEM = 100;
+
+    public loadRoomChat(Socket s, JScrollPane roomList, User user) {
         this.s = s;
+        this.roomList = roomList;
+        this.user = user;
     }
 
     @Override
-    public synchronized void run() {
-        
+    public void run() {
         try {
-            System.out.println("Load giao dien");
-            
-            DataInputStream input = new DataInputStream(s.getInputStream());
-            DataOutputStream output = new DataOutputStream(s.getOutputStream());
+            while (true) {
+                DataInputStream input = new DataInputStream(s.getInputStream());
+                DataOutputStream output = new DataOutputStream(s.getOutputStream());
 
-            HashMap<String, String> maps = new HashMap<>();
-            maps.put("command", "GET_ALL_ROOM");
-            output.writeUTF(new Gson().toJson(maps));
+                HashMap<String, String> maps = new HashMap<>();
+                maps.put("command", "GET_ALL_ROOM");
+                output.writeUTF(new Gson().toJson(maps));
 
-            String line = input.readUTF();
-            maps = new Gson().fromJson(line, new TypeToken<HashMap<String, String>>() {
-            }.getType());
-
-            if (maps.get("result").compareTo("SUCCESS") == 0) {
-                List<Room> listRoom = new Gson().fromJson(maps.get("data"), new TypeToken<List<Room>>() {
+                String line = input.readUTF();
+                maps = new Gson().fromJson(line, new TypeToken<HashMap<String, String>>() {
                 }.getType());
 
-                Container container = new Container();
-                for (Room r : listRoom) {
-                    JPanel roomItem = new Room_Item(r);
-                    roomItem.setSize(WIDTH_ITEM, HEIGHT_ITEM);
-                    roomItem.setVisible(true);
-                    container.add(roomItem);
+                if (maps.get("result").compareTo("SUCCESS") == 0) {
+                    List<Room> listRoom = new Gson().fromJson(maps.get("data"), new TypeToken<List<Room>>() {
+                    }.getType());
+
+                    Container con = new Container();
+
+                    for (Room room : listRoom) {
+                        JPanel p = new Room_Item(user, room);
+                        p.setSize(300, 200);
+                        p.setVisible(true);
+                        con.add(p);
+                    }
+
+                    for (Room room : listRoom) {
+                        JPanel p = new Room_Item(user, room);
+                        p.setSize(300, 200);
+                        p.setVisible(true);
+                        con.add(p);
+                    }
+
+                    for (Room room : listRoom) {
+                        JPanel p = new Room_Item(user, room);
+                        p.setSize(300, 200);
+                        p.setVisible(true);
+                        con.add(p);
+                    }
+
+                    con.setLayout(new GridLayout(listRoom.size(), 3));
+                    roomList.getViewport().setView(con);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Lỗi khi load rom chat !!!");
                 }
-
-                for (Room r : listRoom) {
-                    JPanel roomItem = new Room_Item(r);
-                    roomItem.setSize(WIDTH_ITEM, HEIGHT_ITEM);
-                    roomItem.setVisible(true);
-                    container.add(roomItem);
-                }
-
-                container.setLayout(new GridLayout(listRoom.size() * 2, 1));
-                scroll.getViewport().setView(container);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Lỗi khi load rom chat !!!");
+                
+                Thread.sleep(2000);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(loadRoomChat.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
