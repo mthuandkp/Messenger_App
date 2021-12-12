@@ -391,7 +391,7 @@ public class ClassBUS {
                 }
             }
             if (!checkView) {
-                viewmessgroupdao.viewMessage(idSend, mess.getId(), conn);
+                viewmess11dao.addViewMessage(idSend, mess.getId(), conn);
             }
         }
     }

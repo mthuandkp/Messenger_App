@@ -182,7 +182,7 @@ public class Sticker_Select_Group extends javax.swing.JFrame {
                     }
 
                     //Them vao chat
-                    Container container = null;
+                    Container container = new Container();
                     if (scrollChat.getViewport().getView() != null) {
                         for (Component c : scrollChat.getViewport().getComponents()) {
                             if (c instanceof Container) {

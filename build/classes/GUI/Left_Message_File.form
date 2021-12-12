@@ -39,7 +39,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="247" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="173" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -77,7 +77,7 @@
                                   <Component id="file_name" alignment="0" min="-2" pref="305" max="-2" attributes="0"/>
                                   <Component id="name_user" alignment="0" min="-2" pref="370" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="80" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
             <Component class="javax.swing.JLabel" name="view_mess">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arimo" size="18" style="0"/>
+                  <Font name="Arimo" size="16" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="29" green="ae" red="c4" type="rgb"/>

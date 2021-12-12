@@ -118,7 +118,7 @@ public class Left_Message_File extends javax.swing.JPanel {
         time_mess.setForeground(new java.awt.Color(239, 124, 2));
         time_mess.setText("jLabel1");
 
-        view_mess.setFont(new java.awt.Font("Arimo", 0, 18)); // NOI18N
+        view_mess.setFont(new java.awt.Font("Arimo", 0, 16)); // NOI18N
         view_mess.setForeground(new java.awt.Color(196, 174, 41));
         view_mess.setText("jLabel1");
 
@@ -147,7 +147,7 @@ public class Left_Message_File extends javax.swing.JPanel {
                             .addComponent(downloadBtn)
                             .addComponent(file_name, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(name_user, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 6, Short.MAX_VALUE)))
+                        .addGap(0, 80, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -173,7 +173,7 @@ public class Left_Message_File extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 247, Short.MAX_VALUE))
+                .addGap(0, 173, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

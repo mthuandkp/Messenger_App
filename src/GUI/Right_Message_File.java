@@ -121,7 +121,7 @@ public class Right_Message_File extends javax.swing.JPanel {
         time_mess.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         time_mess.setText("jLabel1");
 
-        view_mess.setFont(new java.awt.Font("Arimo", 0, 18)); // NOI18N
+        view_mess.setFont(new java.awt.Font("Arimo", 0, 16)); // NOI18N
         view_mess.setForeground(new java.awt.Color(196, 174, 41));
         view_mess.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         view_mess.setText("jLabel1");
