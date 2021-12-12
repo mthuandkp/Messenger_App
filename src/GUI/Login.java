@@ -392,9 +392,9 @@ class Read_ClientLogin implements Runnable {
                 switch (maps.get("command")) {
                     case "LOGIN_ACCOUNT": {
                         String result = maps.get("result");
-                        JOptionPane.showMessageDialog(null, maps.get("result"));
                         switch (result) {
                             case "Tài khoản chưa đc kích hoạt": {
+                                JOptionPane.showMessageDialog(null, maps.get("result"));
                                 frame.dispose();
                                 new Comfirm_Account(email.getText()).setVisible(true);
                                 break;

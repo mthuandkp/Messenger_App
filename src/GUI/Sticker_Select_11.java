@@ -43,7 +43,7 @@ public class Sticker_Select_11 extends javax.swing.JFrame {
     String randomKey;
     PublicKey pKeyServer;
     JScrollPane scrollChat;
-    final String[] listStiker = {"sticker1.gif", "sticker2.gif", "sticker3.gif", "sticker4.gif", "sticker5.gif", "sticker6.gif", "sticker7.gif", "sticker8.gif", "sticker9.gif", "sticker10.gif"};
+    final String[] listStiker = {"sticker1.gif", "sticker2.gif", "sticker3.gif", "sticker4.gif", "sticker5.gif", "sticker6.gif", "sticker7.gif", "sticker8.gif", "sticker9.gif", "sticker10.gif","sticker11.gif","sticker12.gif","sticker13.gif","sticker14.gif","sticker15.gif","sticker16.gif","sticker17.gif","sticker18.gif"};
     
     public Sticker_Select_11() {
         initComponents();
@@ -57,10 +57,7 @@ public class Sticker_Select_11 extends javax.swing.JFrame {
         initComponents();
         loadSticker();
         initSocket();
-    }
-    
-    
-    
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.

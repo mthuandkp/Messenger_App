@@ -14,23 +14,14 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
-import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.util.Base64;
 import java.util.HashMap;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.swing.ImageIcon;
@@ -38,7 +29,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
 
 /**
  *
@@ -53,8 +43,8 @@ public class Sticker_Select_Group extends javax.swing.JFrame {
     String randomKey;
     PublicKey pKeyServer;
     JScrollPane scrollChat;
-    final String[] listStiker = {"sticker1.gif", "sticker2.gif", "sticker3.gif", "sticker4.gif", "sticker5.gif", "sticker6.gif", "sticker7.gif", "sticker8.gif", "sticker9.gif", "sticker10.gif"};
-
+    final String[] listStiker = {"sticker1.gif", "sticker2.gif", "sticker3.gif", "sticker4.gif", "sticker5.gif", "sticker6.gif", "sticker7.gif", "sticker8.gif", "sticker9.gif", "sticker10.gif","sticker11.gif","sticker12.gif","sticker13.gif","sticker14.gif","sticker15.gif","sticker16.gif","sticker17.gif","sticker18.gif"};
+    
     /**
      * Creates new form Stiker_Select
      */
