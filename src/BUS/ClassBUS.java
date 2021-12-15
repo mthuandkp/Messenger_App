@@ -572,8 +572,8 @@ public class ClassBUS {
         Message_11DTO mess = new Message_11DTO(
                 idUser,
                 idReceive,
-                filename,
                 DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()),
+                filename,
                 true
         );
         message11dao.addNew11Mess(mess, conn);

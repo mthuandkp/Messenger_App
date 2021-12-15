@@ -206,9 +206,9 @@ public class Right_Message_File extends javax.swing.JPanel {
     private void downloadBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_downloadBtnMouseClicked
         try {
             // TODO add your handling code here:
-            String filename = file_name.getText();
+            String filename = file_name.getText();//System.out.println("file name = " + filename);
             if (filename.compareTo("") == 0 || !filename.contains(".")) {
-                JOptionPane.showMessageDialog(null, "Lỗi tải file ");
+                JOptionPane.showMessageDialog(null, "Lỗi tải file " + filename);
                 return;
             }
 
@@ -244,7 +244,7 @@ public class Right_Message_File extends javax.swing.JPanel {
             //ep kieu thanh hashmap
             maps = new Gson().fromJson(inputStr, new TypeToken<HashMap<String, String>>() {
             }.getType());
-            
+            System.out.println(maps);
             switch (maps.get("command")) {
                 case "DOWNLOAD_FILE_MESAGE": {
                     String result = maps.get("result");

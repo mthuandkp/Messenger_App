@@ -222,7 +222,7 @@ public class Chat_Room_Group extends javax.swing.JFrame {
         }
 
         //Them vao chat
-        Container container = null;
+        Container container = new Container();
         for (Component c : chat_message.getViewport().getComponents()) {
             if (c instanceof Container) {
                 container = (Container) c;

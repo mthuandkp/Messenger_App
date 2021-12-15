@@ -497,6 +497,10 @@ public class Server implements Runnable {
             //ADD_FILE_MESAGE
             String[] str = new Gson().fromJson(data, new TypeToken<String[]>() {
             }.getType());
+            
+            for(int i = 0;i < str.length;i++){
+                System.out.println(str[i]);
+            }
             int idUser = Integer.valueOf(str[0]);
             int idGroup = Integer.valueOf(str[1]);
             String filename = str[2];
@@ -519,7 +523,7 @@ public class Server implements Runnable {
         private String downloadFile(String data, String clientKey) {
 
             File file = new File("./src/file_Server/" + data);
-            System.out.println(file);
+
             //KHOI TAO DU LIEU TRA VE
             HashMap<String, String> dataMap = new HashMap<>();
             dataMap.put("command", "DOWNLOAD_FILE_MESAGE");
@@ -532,8 +536,11 @@ public class Server implements Runnable {
                     dataMap.put("message", "Tải file thành công. File được  lưu ở './src/file/" + data + "'");
                     dataMap.put("data", new Gson().toJson(dataFile));
                     dataMap.put("filename", data);
-                } catch (IOException ex) {
-                    dataMap.put("result", "Lỗi khi tải file");
+                } catch (Exception ex) {
+                    //JOptionPane.showMessageDialog(null, ex.printStackTrace());
+                    dataMap.put("result", "Lỗi khi tải file" + ex.getMessage());
+                    
+                   
                 }
             }
 

@@ -68,6 +68,8 @@ public class Message_11DAO {
             prestm.setString(4, mess.getContent());
             prestm.setBoolean(5, mess.isIsURL());
             
+            System.out.println("\n\n"+prestm+"\n\n");
+            
             prestm.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

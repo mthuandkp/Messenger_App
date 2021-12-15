@@ -1,0 +1,145 @@
+INSERT INTO `Code_cmd`(`Id`, `Name`, `Code`) VALUES 
+(13,'install skus office 2010 retail','if exist "%ProgramFiles%\Microsoft Office\Office14\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office14"\nif exist "%ProgramFiles(x86)%\Microsoft Office\Office14\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office14"\nfor /f %i in ('dir /b ..\root\Licenses\ProPlus_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses\%i"\nfor /f %i in ('dir /b ..\root\Licenses\ProPlusMSDN_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses\%i"'),
+(14,'install skus office 2010 volume','if exist "%ProgramFiles%\Microsoft Office\Office14\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office14"\nif exist "%ProgramFiles(x86)%\Microsoft Office\Office14\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office14"\nfor /f %i in ('dir /b ..\root\Licenses\ProPlus_KMS_Client*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses\%i"\nfor /f %i in ('dir /b ..\root\Licenses\ProPlus_MAK*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses\%i"');,
+(15,'',''),
+(16,'',''),
+(17,'',''),
+(18,'',''),
+(19,'',''),
+(20,'',''),
+(21,'',''),
+(22,'','');
+
+
+
+
+
+
+====================== WINDOWS ============================
+====================== OFFICE ============================
+========================= OTHER =========================
+
+install skus office
+== Office 2010 Pro Plus
+
+Code for Retail
+
+
+Code for Volume MAK
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+== Office 2013 Pro Plus
+
+- Duong dan chua bo skus Office 2013
+C:\Program Files\Microsoft Office\root\Licenses15
+
+Code for Retail
+if exist "%ProgramFiles%\Microsoft Office\Office15\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office15"
+if exist "%ProgramFiles(x86)%\Microsoft Office\Office15\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office15"
+
+for /f %i in ('dir /b ..\root\Licenses15\ProPlusr_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+for /f %i in ('dir /b ..\root\Licenses15\ProPlusMSDNR_retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+
+for /f %i in ('dir /b ..\root\Licenses15\VisioProR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+for /f %i in ('dir /b ..\root\Licenses15\VisioProMSDNR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+
+for /f %i in ('dir /b ..\root\Licenses15\ProjectProR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+for /f %i in ('dir /b ..\root\Licenses15\ProjectProMSDNR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+
+Code for Volume MAK
+if exist "%ProgramFiles%\Microsoft Office\Office15\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office15"
+if exist "%ProgramFiles(x86)%\Microsoft Office\Office15\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office15"
+
+for /f %i in ('dir /b ..\root\Licenses15\ProPlusVL_MAK-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+for /f %i in ('dir /b ..\root\Licenses15\ProPlusVL_KMS_Client-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+
+for /f %i in ('dir /b ..\root\Licenses15\ProjectProVL_MAK-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+
+for /f %i in ('dir /b ..\root\Licenses15\VisioProVL_MAK-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses15\%i"
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+== Office 2016 Pro Plus
+
+- Duong dan chua bo skus Office 2016
+C:\Program Files\Microsoft Office\root\Licenses16
+
+Code for Retail
+if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16"
+if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16"
+
+for /f %i in ('dir /b ..\root\Licenses16\ProPlusR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\ProPlusMSDNR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+for /f %i in ('dir /b ..\root\Licenses16\VisioProR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\VisioProMSDNR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+for /f %i in ('dir /b ..\root\Licenses16\ProjectProR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\ProjectProMSDNR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+
+Code for Volume MAK
+if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16"
+if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16"
+
+for /f %i in ('dir /b ..\root\Licenses16\ProPlusVL_MAK-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\ProPlusVL_KMS_Client-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+for /f %i in ('dir /b ..\root\Licenses16\VisioProVL_MAK-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\VisioProVL_KMS_Client-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+for /f %i in ('dir /b ..\root\Licenses16\ProjectProVL_MAK-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\ProjectProVL_KMS_Client-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+== Office 2019 Pro Plus
+
+- Duong dan chua bo skus Office 2019
+C:\Program Files\Microsoft Office\root\Licenses16
+
+Code for Retail
+if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16"
+if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16"
+
+for /f %i in ('dir /b ..\root\Licenses16\ProPlus2019R_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\ProPlus2019MSDNR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+for /f %i in ('dir /b ..\root\Licenses16\VisioPro2019R_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\VisioPro2019MSDNR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+for /f %i in ('dir /b ..\root\Licenses16\ProjectPro2019R_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\ProjectPro2019MSDNR_Retail*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+Code for Volume MAK
+if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16"
+if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16"
+
+for /f %i in ('dir /b ..\root\Licenses16\ProPlus2019VL_MAK_AE*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\ProPlus2019VL_KMS_Client_AE*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+for /f %i in ('dir /b ..\root\Licenses16\VisioPro2019VL_MAK-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\VisioPro2019VL_KMS_Client-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+for /f %i in ('dir /b ..\root\Licenses16\ProjectPro2019VL_MAK-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+for /f %i in ('dir /b ..\root\Licenses16\ProjectPro2019VL_KMS_Client-*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%i"
+
+
+Windows 10 (sau khi nạp lệnh cmd xong sẽ có tất cả sku trong folder sku)
+cscript.exe %windir%\system32\slmgr.vbs /rilc
+cscript.exe %windir%\system32\slmgr.vbs /upk >nul 2>&1
+cscript.exe %windir%\system32\slmgr.vbs /ckms >nul 2>&1
+cscript.exe %windir%\system32\slmgr.vbs /cpky >nul 2>&1
+
+Windows 10 lệnh nạp sku và nạp riêng key
+ubub
